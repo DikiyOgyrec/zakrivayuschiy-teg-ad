@@ -7,8 +7,8 @@ const { join } = require("node:path");
 test("The font stylesheet loads the variable and pixel fonts", () => {
   const css = readFileSync(join(__dirname, "../fonts/fonts.css"), "utf8");
   assert.ok(
-    /font-weight:\s*400 700/.test(css) &&
-      /Inter-Variable\.woff2/.test(css) &&
+    /font-weight:\s*400 785/.test(css) &&
+      /woff2 supports variations/.test(css) && /woff2-variations/.test(css) && /Inter-Variable\.woff2/.test(css) &&
       /PressStart2P-Regular\.woff/.test(css),
     "The font definitions lack the variable range or pixel font",
   );

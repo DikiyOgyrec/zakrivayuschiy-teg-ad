@@ -14,3 +14,9 @@ test("The document contains eight cards and a closable save dialog", () => {
     "The story lacks cards or an accessible save dialog",
   );
 });
+
+/** Verifies that closing the dialog does not submit a form or navigate. */
+test("The dialog closes through an explicit non submitting button", () => {
+  const html = readFileSync(join(__dirname, "../index.html"), "utf8");
+  assert.match(html, /class="button dialog__button"\s+type="button"\s+onclick="document.querySelector\('#save'\).close\(\)"/, "The dialog close control can submit instead of closing explicitly");
+});
